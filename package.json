@@ -1,0 +1,29 @@
+{
+  "name": "wh-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@godaddy/terminus": "^4.2.0",
+    "@streetcred.id/service-clients": "^1.1.1109",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2",
+    "i": "^0.3.6",
+    "multer": "^1.4.2",
+    "ngrok": "^3.2.5",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "supertest": "^4.0.2"
+  }
+}
