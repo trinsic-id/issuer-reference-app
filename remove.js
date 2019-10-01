@@ -1,7 +1,6 @@
 require('dotenv').config();
 const AgencyServiceClient = require("@streetcred.id/service-clients").AgencyServiceClient;
 const Credentials = require("@streetcred.id/service-clients").Credentials;
-const Models = require("@streetcred.id/service-clients").Models;
 const client = new AgencyServiceClient(new Credentials(process.env.ACCESSTOK, process.env.SUBKEY));
 
 async function removeWebhooks(tenant_id) {

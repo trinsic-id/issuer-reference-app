@@ -92,7 +92,6 @@ app.post('/api/issue', cors(), async function (req, res) {
     const invite = await getInvite();
     const attribs = JSON.stringify(req.body);
 
-    // redisClient.set(invite.connectionId, attribs);
     cache.add(invite.connectionId, attribs);
     res.status(200).send({invite_url: invite.invitationUrl});
 });

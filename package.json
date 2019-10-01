@@ -29,13 +29,12 @@
     "typescript": "^3.6.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "serve": "serve",
+    "start": "run-p server frontend",
+    "frontend": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node --experimental-modules server.js --exec nodemon",
-    "dev": "run-p server start",
+    "server": "node server.js --exec nodemon",
     "remove-webhooks": "node remove.js"
   },
   "eslintConfig": {
