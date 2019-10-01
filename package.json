@@ -33,7 +33,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "node server.js --exec nodemon",
+    "server": "node --experimental-modules server.js --exec nodemon",
     "dev": "run-p server start",
     "remove-webhooks": "node remove.js"
   },

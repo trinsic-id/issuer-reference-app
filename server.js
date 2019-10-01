@@ -6,12 +6,12 @@ var {createTerminus} = require('@godaddy/terminus');
 var express = require('express');
 var ngrok = require('ngrok');
 var redis = require('redis');
+var cache = require('./model');
 
 require('dotenv').config();
 
 const AgencyServiceClient = require("@streetcred.id/service-clients").AgencyServiceClient;
 const Credentials = require("@streetcred.id/service-clients").Credentials;
-const Models = require("@streetcred.id/service-clients").Models;
 const client = new AgencyServiceClient(new Credentials(process.env.ACCESSTOK, process.env.SUBKEY));
 
 var app = express();
@@ -57,28 +57,34 @@ app.post('/webhook', async function (req, res) {
         else if(req.body.message_type === 'credential_request') {
             const connectionId = req.body.data.ConnectionId;
             var param_obj;
-            redisClient.get(connectionId, async function (err, result) {
-                if(result){
-                    console.log("REDIS RES:");
-                    console.log(result);
-                    param_obj = JSON.parse(result);
-                    const params = {
-                        values: {
-                            "Full Name": param_obj["name"],
-                            "Title": param_obj["title"],
-                            "Company Name": param_obj["org"],
-                            "Phone Number": param_obj["phone"],
-                            "Email": param_obj["email"]
-                        }
+            // redisClient.get(connectionId, async function (err, result) {
+                
+            // });   
+            const attribs = cache.get(connectionId)
+            if(attribs){
+                console.log("REDIS RES:");
+                console.log(attribs);
+                param_obj = JSON.parse(attribs);
+                const params = {
+                    values: {
+                        "Full Name": param_obj["name"],
+                        "Title": param_obj["title"],
+                        "Company Name": param_obj["org"],
+                        "Phone Number": param_obj["phone"],
+                        "Email": param_obj["email"]
                     }
-                    await client.issueCredential(req.body.object_id, process.env.TENANT_ID, params);
                 }
-            });          
-        }
+                await client.issueCredential(req.body.object_id, process.env.TENANT_ID, params);
+            } 
+            else { 
+                console.log("attributes were not formatted correctly.")
+            }     
+        } 
         else {
             console.log("message type not recognized... yet");
         }
-    } catch (e) {
+    } 
+    catch (e) {
         console.log(e.message || e.toString());
     }
 });
@@ -88,7 +94,8 @@ app.post('/api/issue', cors(), async function (req, res) {
     const invite = await getInvite();
     const attribs = JSON.stringify(req.body);
 
-    redisClient.set(invite.connectionId, attribs);
+    // redisClient.set(invite.connectionId, attribs);
+    cache.add(invite.connectionId, attribs);
     res.status(200).send({invite_url: invite.invitationUrl});
 });
 
