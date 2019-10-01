@@ -1,7 +1,7 @@
 var http = require('http');
 var parser = require('body-parser');
 var cors = require('cors');
-var session = require('express-session');
+var path = require('path');
 var {createTerminus} = require('@godaddy/terminus');
 var express = require('express');
 var ngrok = require('ngrok');
@@ -17,11 +17,19 @@ const client = new AgencyServiceClient(new Credentials(process.env.ACCESSTOK, pr
 var app = express();
 app.use(cors());
 app.use(parser.json());
-
+app.use(express.static(path.join(__dirname, 'build')))
 
 redisClient = redis.createClient();
 redisClient.on("error", function (err) {
     console.log("Error " + err);
+});
+
+app.get('/ping', function (req, res) {
+    return res.send('pong');
+});
+
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 // WEBHOOK ENDPOINT
@@ -43,7 +51,8 @@ app.post('/webhook', async function (req, res) {
                     connectionId: req.body.object_id
                 }
             }
-            await client.createCredential(process.env.TENANT_ID, params);            
+            await client.createCredential(process.env.TENANT_ID, params)
+                .catch(err => console.log(err));            
         }
         else if(req.body.message_type === 'credential_request') {
             const connectionId = req.body.data.ConnectionId;
@@ -88,8 +97,9 @@ const getInvite = async () => {
     try {
         var result = await client.createConnection(process.env.TENANT_ID, {
             connectionInvitationParameters: {}
-        });
-        var invite = await client.getConnection(result.id, process.env.TENANT_ID);
+        }).catch(err => console.log(err));;
+        var invite = await client.getConnection(result.id, process.env.TENANT_ID)
+            .catch(err => console.log(err));;
         return invite;
 
     } catch(e) {
@@ -108,6 +118,7 @@ async function beforeShutdown() {
         }
     });
     await client.removeWebhook(webhookId, "jWBf0we4M6UDccwa2NIlsFfE")
+        .catch(err => console.log(err));
 }
 
 createTerminus(server, {
@@ -130,7 +141,7 @@ var serve = server.listen(PORT, async function() {
 }); 
 
 async function removeWebhooks(tenant_id) {
-    const webhooks = client.listWebhooks(tenant_id);
-
+    var webhooks = await client.listWebhooks(tenant_id);
+    console.log(webhooks);
 }
 

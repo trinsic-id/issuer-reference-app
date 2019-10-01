@@ -6,18 +6,15 @@ import Typography from "@material-ui/core/es/Typography/Typography";
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import DialogContent from '@material-ui/core/DialogContent';
 import {TextField} from "@material-ui/core";
 import axios from 'axios';
 import QRcode from 'qrcode.react';
-import { authtoken } from 'ngrok';
 
 // import logo from "./"; {/*add streetcred logo*/}
 
-axios.defaults.baseURL = 'http://localhost:3002';
+axios.defaults.baseURL = 'http://localhost:3002/';
 export class App extends Component {
     state = {
-
             name: "",
             title: "",
             org: "",
