@@ -9,9 +9,9 @@
 
  - go to the Streetcred [developer portal](https://developer.streetcred.id) and create an account
 
- - Create a sandbox subscription
+ - In the Subscriptions tab, create a sandbox subscription
 
- - Add a subscription key
+ - In the Keys and Secrets tab, add a subscription key. 
 
 - Paste your subscription key and access token into your .env file 
 
@@ -20,6 +20,10 @@
 - Add the tenant_id to your .env file
 
 - Create a credential definition with the swaggerhub documents
+ - authenticate with your api keys. Make sure to add bearer to the beginning of the subscription key
+ - add the schema ID from the .env file to the `id` value
+ - change revocation to false
+ 
 
 - Add the credential definition ID to your .env file
 

@@ -7,7 +7,7 @@ async function removeWebhooks(tenant_id) {
     var webhooks = await client.listWebhooks(tenant_id);
     console.log(webhooks);
     for(i=0; i < webhooks.length; i ++) {
-        await client.removeWebhook(webhooks[i].id, "jWBf0we4M6UDccwa2NIlsFfE")
+        await client.removeWebhook(webhooks[i].id, process.env.TENANT_ID)
         .catch(err => console.log(err));
     }
     var webhooks_final = await client.listWebhooks(tenant_id);

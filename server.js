@@ -114,22 +114,22 @@ const getInvite = async () => {
 // for graceful closing
 var server = http.createServer(app);
 
-async function beforeShutdown() {
+async function onSignal() {
     var webhookId = cache.get("webhookId");
-    await client.removeWebhook(webhookId, "jWBf0we4M6UDccwa2NIlsFfE")
-        .catch(err => console.log(err));
+    console.log("triggered on signal");
+    const p1 = await client.removeWebhook(webhookId, process.env.TENANT_ID);
+    return Promise.all([p1]);
 }
-
 createTerminus(server, {
-    signal: ['SIGINT', 'SIGTERM'],
+    signals: ['SIGINT', 'SIGTERM'],
     healthChecks: {},
-    beforeShutdown
+    onSignal
 });
 
 const PORT = process.env.PORT || 3002;
 var serve = server.listen(PORT, async function() {
     const url_val = await ngrok.connect(PORT);
-    var response = await client.createWebhook("jWBf0we4M6UDccwa2NIlsFfE", {
+    var response = await client.createWebhook(process.env.TENANT_ID, {
         webhookParameters: {
             url: url_val + "/webhook",  // process.env.NGROK_URL
             type: "Notification"
