@@ -116,12 +116,7 @@ const getInvite = async () => {
 var server = http.createServer(app);
 
 async function beforeShutdown() {
-    var webhookId;
-    redisClient.get("webhookId", (err, result) => {
-        if (result) {
-            webhookId = result;
-        }
-    });
+    var webhookId = cache.get("webhookId");
     await client.removeWebhook(webhookId, "jWBf0we4M6UDccwa2NIlsFfE")
         .catch(err => console.log(err));
 }
@@ -141,7 +136,7 @@ var serve = server.listen(PORT, async function() {
             type: "Notification"
         }
     });
-    redisClient.set("webhookId", response.id);
+    cache.add("webhookId", response.id);
     console.log('Listening on port %d', server.address().port);
 }); 
 
