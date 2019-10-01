@@ -28,8 +28,8 @@ app.get('/ping', function (req, res) {
     return res.send('pong');
 });
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
 // WEBHOOK ENDPOINT
@@ -38,10 +38,8 @@ app.post('/webhook', async function (req, res) {
         console.log(req.body);
         if(req.body === null || req.body.data === null)  {
             console.log("request has null values in required params");
-            console.log(req.body);
-            
+            console.log(req.body); 
         }
-
         if(req.body.message_type === 'new_connection') {
             var params = 
             {
