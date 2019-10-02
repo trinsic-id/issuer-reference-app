@@ -44,7 +44,7 @@ Choose a Sovrin staging net seed and put your name by it [google doc](https://do
  
 #### If you are using the Mattr Global Agent on Android:
 Add a transaction endorser on the BCovrin Test network by registeringa 32 byte seed to register your did on the BCovrin network: http://test.bcovrin.vonx.io/
-Here's 32 ascii characters, replace a couple to make it unique.
+Here are 32 ascii characters, replace some characters to make it unique.
     `00000000000000000000000000000000`
 
 ### Register your organization
@@ -56,23 +56,13 @@ Here's 32 ascii characters, replace a couple to make it unique.
 1. Navigate to the [`POST /credential/definitions`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Credentials/CreateCredentialDefinition) endpoint
 1. Click the lock button and authorize swaggerhub by pasting "bearer" + your access token in the access token field & your subscription key into its field
 1. Click the `Try it out` button to prepare the API call to write the credential definition to the ledger
-1. Paste the tenant_id into the first field "X-Streetcred-Tenant-Id" 
+1. Paste the tenant_id into the first field `X-Streetcred-Tenant-Id`
 1. In the next field, add the following credential definition object:
 ```json
 {
   "schema_id": "<- ENTER HERE ->",
-  "name": "business-card",
-  "version": "1.0",
-  "attr_names": [
-     "Full Name",
-     "Title",
-     "Company Name",
-     "Phone Number",
-     "Email"
-  ],
   "support_revocation": false,
-  "max_count": 0,
-  "tag": "tag"
+  "tag": "tag1"
 }
 ```
 1. In the .env file, find the ledger you're using and remove the `#` from before that SCHEMA_ID line.
