@@ -18,10 +18,10 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 
 ### Prepare issuer portal
  1. clone the repository
- `git clone https://github.com/streetcred-id/biz-card-demo`
+ `git clone https://github.com/streetcred-id/iiw-demo`
  
  1. navigate into the directory
- `cd biz-card-demo`
+ `cd iiw-demo`
  
  1. install the dependencies
  `npm install .`
