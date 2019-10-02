@@ -24,7 +24,6 @@
  - add the schema ID from the .env file to the `id` value
  - change revocation to false
  
-
 - Add the credential definition ID to your .env file
 
 - run the application
