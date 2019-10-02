@@ -1,11 +1,18 @@
-# Streetcred's API Example
+# Streetcred's API Quickstart
+This demo shows how to add Streetcred API calls into a nodejs app with our service client. It also shows a webhook implementation can create automated workflows in your app. 
+
+## Use Case
+In this simple use case, you control a (very simple) issuer portal for your organization, which can issue a business card to anyone with a mobile wallet in your organization. Once a business card is issued, that holder can verify their phone 
+
+## Install mobile wallet
+
+### iOS
+ 1. If you are using iOS, download the [streetcred identity agent](https://apps.apple.com/us/app/streetcred-identity-agent/id1475160728)
+ 
+### Android
+ 1. If you are using Android, download the [Mattr Proton Wallet](https://redir.streetcred.id/lRaAnnBiSkZx)
 
 ## Steps to issue a business card: 
-
-### Install mobile wallet
- 1. If you are using iOS, download the [streetcred identity agent](https://apps.apple.com/us/app/streetcred-identity-agent/id1475160728)
-
- 1. If you are using android, download the [Mattr Proton Wallet](https://redir.streetcred.id/lRaAnnBiSkZx)
 
 ### Prepare issuer portal
  1. clone the repository
@@ -79,9 +86,14 @@ Assuming everything still works correctly, you are ready to run the application.
 
 - On the web app, fill in the details and click issue credential
 
-- Scan with your mobile wallet
+- Scan the QR with your mobile wallet
+This is a connection invitation. Webhooks will automatically issue you a credential once this is scanned
 
-- If the fates are in your favor, you should receive a credentials
+- Accept the credential offer
+
+- Receive a business card! 
+
+- If you are on iOS, you can use the Streetcred Identity Agent to connect with others and send verified email and phone number between each other. 
 
 
  
