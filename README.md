@@ -50,7 +50,7 @@ Here's 32 ascii characters, replace a couple to make it unique.
 1. Click the lock button and authorize swaggerhub by pasting "bearer" + your access token in the access token field & your subscription key into its field
 1. Click the `Try it out` button to prepare the API call to write the credential definition to the ledger
 1. Paste the tenant_id into the first field "X-Streetcred-Tenant-Id" 
-1. in the next field add the following credential definition object:
+1. In the next field, add the following credential definition object:
 ```json
 {
   "schema_id": "<- ENTER HERE ->",
@@ -70,7 +70,7 @@ Here's 32 ascii characters, replace a couple to make it unique.
 ```
 1. In the .env file, find the ledger you're using and remove the `#` from before that SCHEMA_ID line.
 1. Copy that schema ID into the `schema_id` field in swagger hub. 
-1. click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `id` value from that section and add it to your .env file for the CRED_DEF_ID value
+1. Click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `id` value from the "server response" section and add it to your .env file for the CRED_DEF_ID value
  
 ### Running the application
 Assuming everything still works correctly, you are ready to run the application. 
