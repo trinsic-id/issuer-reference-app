@@ -80,6 +80,8 @@ Assuming everything still works correctly, you are ready to run the application.
 
 - On the web app, fill in the details and click issue credential
 
+- If you're using the Streetcred Wallet, make sure your agent is configured to the correct network (upper-left on the home tab)
+
 - Scan with your mobile wallet
 
 - If the fates are in your favor, you should receive a credentials
