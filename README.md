@@ -1,11 +1,13 @@
 # Streetcred's API Example
 
-## Steps to create: 
+## Steps to issue a business card: 
  - clone the repository
  `git clone https://github.com/streetcred-id/biz-card-demo`
 
  - install the dependencies
  `npm install .`
+
+ - rename the .env-template file to .env
 
  - go to the Streetcred [developer portal](https://developer.streetcred.id) and create an account
 
@@ -29,9 +31,7 @@
 - run the application
 `npm run start`
 
-- pray to whatever god you believe in
-
-- add the fields of the credential
+- On the web app, add the fields of the credential
 
 - click issue credential
 
