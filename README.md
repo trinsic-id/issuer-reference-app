@@ -50,13 +50,14 @@ Here's 32 ascii characters, replace a couple to make it unique.
 ### Register your organization
 1. Go to the [`My Agency`](https://developer.streetcred.id/orgs) Tab
 1. Create a new organization with the correct network and your seed
-1. Paste your organization page into the .env file
+1. Copy the `Tenant ID` from your organization and paste it into the .env file
 
 ### Create a credential definition with Swaggerhub
 1. Navigate to the [`POST /credential/definitions`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Credentials/CreateCredentialDefinition) endpoint
 1. Click the lock button and authorize swaggerhub by pasting "bearer" + your access token in the access token field & your subscription key into its field
+1. Click the `Try it out` button to prepare the API call to write the credential definition to the ledger
 1. Paste the tenant_id into the first field "X-Streetcred-Tenant-Id" 
-1. in the next field add the following credential definition object:
+1. In the next field, add the following credential definition object:
 ```json
 {
   "schema_id": "<- ENTER HERE ->",
@@ -76,7 +77,7 @@ Here's 32 ascii characters, replace a couple to make it unique.
 ```
 1. In the .env file, find the ledger you're using and remove the `#` from before that SCHEMA_ID line.
 1. Copy that schema ID into the `schema_id` field in swagger hub. 
-1. click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `id` value from that section and add it to your .env file for the CRED_DEF_ID value
+1. Click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `id` value from the "server response" section and add it to your .env file for the CRED_DEF_ID value
  
 ### Running the application
 Assuming everything still works correctly, you are ready to run the application. 
@@ -86,7 +87,10 @@ Assuming everything still works correctly, you are ready to run the application.
 
 - On the web app, fill in the details and click issue credential
 
+- If you're using the Streetcred Wallet, make sure your agent is configured to the Sovrin Staging network (upper-left on the home tab)
+
 - Scan the QR with your mobile wallet
+
 This is a connection invitation. Webhooks will automatically issue you a credential once this is scanned
 
 - Accept the credential offer
