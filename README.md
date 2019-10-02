@@ -43,7 +43,7 @@ Here's 32 ascii characters, replace a couple to make it unique.
 ### Register your organization
 1. Go to the [`My Agency`](https://developer.streetcred.id/orgs) Tab
 1. Create a new organization with the correct network and your seed
-1. Paste your organization page into the .env file
+1. Copy the `Tenant ID` from your organization and paste it into the .env file
 
 ### Create a credential definition with Swaggerhub
 1. Navigate to the [`POST /credential/definitions`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Credentials/CreateCredentialDefinition) endpoint
