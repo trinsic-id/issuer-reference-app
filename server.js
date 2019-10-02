@@ -93,7 +93,7 @@ app.post('/api/issue', cors(), async function (req, res) {
     const attribs = JSON.stringify(req.body);
 
     cache.add(invite.connectionId, attribs);
-    res.status(200).send({invite_url: invite.invitationUrl});
+    res.status(200).send({invite_url: invite.invitation});
 });
 
 
