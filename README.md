@@ -7,10 +7,11 @@
 
  1. clone the repository
  `git clone https://github.com/streetcred-id/biz-card-demo`
-
- 1. install the dependencies
- `cd biz-card-demo/`
  
+ - navigate into the directory
+ `cd biz-card-demo`
+ 
+ - install the dependencies
  `npm install .`
 
  1. Open up the repository in a code editor of your choice
@@ -19,42 +20,33 @@
 
  1. go to the Streetcred <a href="https://developer.streetcred.id" target="_blank">developer portal</a> and create an account
 
- 1. In the Subscriptions tab, create a sandbox subscription.
-
- 1. In the Keys and Secrets tab, add a subscription key. 
-    Put your expiration date any time in the future.
+ - In the Keys and Secrets tab, add a subscription key
  
+ - Copy your access token & subscription key by using the copy icon to the left of the keys
+ 
+ - Paste your access token & subscription key into your .env file
 
- 1. Paste your subscription key and access token into your .env file 
+- From the developer portal, click the "API Reference" link on the upper-right of the toolbar
+
+- Click the "Authorize" button and paste "bearer" + your access token in the access token field & your subscription key into its field to gain access to the API
+
+- Back in the developer portal, go to the "My Agency" tab 
+
+- Register a new organization
+ - add details for seed here
 
 ## Get an issuer seed on an organization
  1. Choose a Sovrin staging net seed with your name by it [google doc](https://docs.google.com/spreadsheets/d/1ZxLmIFy3HDimy9zMv6um_7V9DdHnDP9rP-s-fvNhsgA/edit?ts=5d8e86dd#gid=0)
  
  1. Go to the `My Agency` tab
 
+- Create a credential definition with the swaggerhub documents
+ - paste the tenant_id into the first field "X-Streetcred-Tenant-Id" 
+ - in the next field "credentialDefinitionParameters" add the schema ID from the .env file to the `schema_id` value
+ - change revocation to false
+ - click "execute"
  
- 1. Add the tenant_id to your .env file
- `TENANT_ID="..."`
-
- 1. Create a credential definition with the swaggerhub documents
-    - authenticate with your api keys. Make sure to add bearer to the beginning of the subscription key
-    - add the schema ID from the .env file to the `id` value
-    - change revocation to false
-    ```
-        {
-        "schema_id": "5ZtmDq3BwF7vVLcWTejb3M:2:business card:1.0",
-        "name": "string",
-        "version": "string",
-        "attr_names": [
-            "string"
-        ],
-        "support_revocation": false,
-        "max_count": 0,
-        "tag": "biz-card"
-        }
-```
- 
-- Add the credential definition ID to your .env file
+- Once the code has executed, you will see "curl", "request URL", and "server response" - copy the `id` value from that section and add it to your .env file for the CRED_DEF_ID value
 
 - run the application
 `npm run start`
