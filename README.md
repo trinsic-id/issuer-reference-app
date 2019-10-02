@@ -3,7 +3,10 @@
 ## Steps to issue a business card: 
  - clone the repository
  `git clone https://github.com/streetcred-id/biz-card-demo`
-
+ 
+ - navigate into the directory
+ `cd biz-card-demo`
+ 
  - install the dependencies
  `npm install .`
 
