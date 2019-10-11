@@ -6,7 +6,7 @@
   "dependencies": {
     "@godaddy/terminus": "^4.2.0",
     "@material-ui/core": "^4.4.3",
-    "@streetcred.id/service-clients": "^1.1.1109",
+    "@streetcred.id/service-clients": "^1.1.1239",
     "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",

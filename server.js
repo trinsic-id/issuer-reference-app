@@ -47,7 +47,7 @@ app.post('/webhook', async function (req, res) {
                         "Email": param_obj["email"]
                     }
                 }
-                await client.issueCredential(req.body.object_id, process.env.TENANT_ID, params);
+                await client.issueCredential(req.body.object_id, params);
             }
         }
     }
@@ -68,10 +68,10 @@ app.post('/api/issue', cors(), async function (req, res) {
 
 const getInvite = async () => {
     try {
-        var result = await client.createConnection(process.env.TENANT_ID, {
+        var result = await client.createConnection({
             connectionInvitationParameters: {}
         });
-        return await client.getConnection(result.id, process.env.TENANT_ID);
+        return await client.getConnection(result.id);
     } catch (e) {
         console.log(e.message || e.toString());
     }
@@ -82,7 +82,7 @@ var server = http.createServer(app);
 
 async function onSignal() {
     var webhookId = cache.get("webhookId");
-    const p1 = await client.removeWebhook(webhookId, process.env.TENANT_ID);
+    const p1 = await client.removeWebhook(webhookId);
     return Promise.all([p1]);
 }
 createTerminus(server, {
@@ -94,10 +94,11 @@ createTerminus(server, {
 const PORT = process.env.PORT || 3002;
 var serve = server.listen(PORT, async function () {
     const url_val = await ngrok.connect(PORT);
-    var response = await client.createWebhook(process.env.TENANT_ID, {
+    var response = await client.createWebhook({
         webhookParameters: {
             url: url_val + "/webhook",  // process.env.NGROK_URL
             type: "Notification"
+
         }
     });
     cache.add("webhookId", response.id);
