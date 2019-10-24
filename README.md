@@ -52,13 +52,11 @@ Here are 32 ascii characters, replace some characters to make it unique.
 ### Register your organization
 1. Go to the [`My Agency`](https://developer.streetcred.id/orgs) Tab
 1. Create a new organization with the correct network and your seed
-1. Copy the `Tenant ID` from your organization and paste it into the .env file
 
 ### Create a credential definition with Swaggerhub
 1. Navigate to the [`POST /credential/definitions`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Credentials/CreateCredentialDefinition) endpoint
 1. Click the lock button and authorize swaggerhub by pasting "bearer" + your access token in the access token field & your subscription key into its field
 1. Click the `Try it out` button to prepare the API call to write the credential definition to the ledger
-1. Paste the tenant_id into the first field `X-Streetcred-Tenant-Id`
 1. In the next field, add the following credential definition object:
 ```json
 {
