@@ -48,7 +48,6 @@ export class App extends Component {
     render() {
        const card = this.state
       return (
-            
             <div >
                 {/* The AppBar */}
                 <AppBar position="static">

@@ -24,7 +24,10 @@ app.get('*', function (req, res) {
 // WEBHOOK ENDPOINT
 app.post('/webhook', async function (req, res) {
     try {
+        console.log("got webhook" + req + "   type: " + req.body.message_type);
         if (req.body.message_type === 'new_connection') {
+                    console.log("new connection notif");
+
             var params =
             {
                 credentialOfferParameters: {
@@ -32,9 +35,11 @@ app.post('/webhook', async function (req, res) {
                     connectionId: req.body.object_id
                 }
             }
-            await client.createCredential(process.env.TENANT_ID, params);
+            await client.createCredential(params);
         }
         else if (req.body.message_type === 'credential_request') {
+                                console.log("cred request notif");
+
             const attribs = cache.get(req.body.data.ConnectionId)
             if (attribs) {
                 var param_obj = JSON.parse(attribs);
@@ -71,7 +76,7 @@ const getInvite = async () => {
         var result = await client.createConnection({
             connectionInvitationParameters: {}
         });
-        return await client.getConnection(result.id);
+        return result;
     } catch (e) {
         console.log(e.message || e.toString());
     }
@@ -92,15 +97,16 @@ createTerminus(server, {
 });
 
 const PORT = process.env.PORT || 3002;
-var serve = server.listen(PORT, async function () {
+var server = server.listen(PORT, async function () {
     const url_val = await ngrok.connect(PORT);
+    console.log("============= \n\n" + url_val + "\n\n =========");
     var response = await client.createWebhook({
         webhookParameters: {
             url: url_val + "/webhook",  // process.env.NGROK_URL
             type: "Notification"
-
         }
     });
+    
     cache.add("webhookId", response.id);
     console.log('Listening on port %d', server.address().port);
 });
