@@ -32,42 +32,28 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 
  1. go to the Streetcred <a href="https://developer.streetcred.id" target="_blank">developer portal</a> and create an account
 
- 1. Add a sandbox subscription
 
-### Add Subscription Keys
- 1. In the Keys and Secrets tab, add a subscription key
- 
- 1. Copy and paste your access token & subscription key into your .env file
-
-### Get an issuer seed on an organization
-
-#### If you are using the Streetcred Identity Agent on iOS:
-Choose a Sovrin staging net seed and put your name by it [google doc](https://docs.google.com/spreadsheets/d/1ZxLmIFy3HDimy9zMv6um_7V9DdHnDP9rP-s-fvNhsgA/edit?ts=5d8e86dd#gid=0)
- 
-#### If you are using the Mattr Global Agent on Android:
-Add a transaction endorser on the BCovrin Test network by registeringa 32 byte seed to register your did on the BCovrin network: http://test.bcovrin.vonx.io/
-Here are 32 ascii characters, replace some characters to make it unique.
-    `00000000000000000000000000000000`
 
 ### Register your organization
 1. Go to the [`My Agency`](https://developer.streetcred.id/orgs) Tab
-1. Create a new organization with the correct network and your seed
+1. Create a new organization and select the Sovrin Staging Network if you are using iOS, and the BCovrin Test network if you are using the Mattr global app.
+1. Click on the `Manage` button to view your organization's information 
 
+#### If you are using the Mattr Global Agent on Android:
+Add a transaction endorser on the BCovrin Test network by registering your did and verkey on the BCovrin network: http://test.bcovrin.vonx.io/
+Here are 32 ascii characters, replace some characters to make it unique.
+    `00000000000000000000000000000000`
+    
 ### Create a credential definition with Swaggerhub
-1. Navigate to the [`POST /credential/definitions`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Credentials/CreateCredentialDefinition) endpoint
-1. Click the lock button and authorize swaggerhub by pasting "bearer" + your access token in the access token field & your subscription key into its field
+1. Go back to the dashboard view (click on the Developer Portal logo)
+1. Click on your organization's Show Keys button.
+1. Navigate to the [`POST /credential/definitions/{SchemaId}`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/CreateCredentialDefinitionForSchemaId) endpoint
+1. Click the lock button on the right hand side and authorize swaggerhub by pasting "bearer " + your access token in the access token field & your subscription key into its field
 1. Click the `Try it out` button to prepare the API call to write the credential definition to the ledger
-1. In the next field, add the following credential definition object:
-```json
-{
-  "schema_id": "<- ENTER HERE ->",
-  "support_revocation": false,
-  "tag": "tag1"
-}
-```
 1. In the .env file, find the ledger you're using and remove the `#` from before that SCHEMA_ID line.
 1. Copy that schema ID into the `schema_id` field in swagger hub. 
 1. Click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `id` value from the "server response" section and add it to your .env file for the CRED_DEF_ID value
+1. If you get a 504 Gateway Timeout error, go to the [GET /credentials](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/ListCredentialDefinitions) endpoint, click `try it out` and then `execute` to get your newly minted credential definition.
  
 ### Running the application
 Assuming everything still works correctly, you are ready to run the application. 
@@ -87,7 +73,7 @@ This is a connection invitation. Webhooks will automatically issue you a credent
 
 - Receive a business card! 
 
-- If you are on iOS, you can use the Streetcred Identity Agent to connect with others and send verified email and phone number between each other. 
+- If you are on iOS, you can also use the Streetcred Identity Agent to connect with others and send verified email and phone number between each other. 
 
 
  
