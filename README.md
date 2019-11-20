@@ -35,9 +35,7 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 
 
 ### Register your organization
-1. Go to the [`My Agency`](https://developer.streetcred.id/orgs) Tab
 1. Create a new organization and select the Sovrin Staging Network if you are using iOS, and the BCovrin Test network if you are using the Mattr global app.
-1. Click on the `Manage` button to view your organization's information 
 
 #### If you are using the Mattr Global Agent on Android:
 Add a transaction endorser on the BCovrin Test network by registering your did and verkey on the BCovrin network: http://test.bcovrin.vonx.io/
@@ -45,7 +43,6 @@ Here are 32 ascii characters, replace some characters to make it unique.
     `00000000000000000000000000000000`
     
 ### Create a credential definition with Swaggerhub
-1. Go back to the dashboard view (click on the Developer Portal logo)
 1. Click on your organization's Show Keys button.
 1. Navigate to the [`POST /credential/definitions/{SchemaId}`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/CreateCredentialDefinitionForSchemaId) endpoint
 1. Click the lock button on the right hand side and authorize swaggerhub by pasting "bearer " + your access token in the access token field & your subscription key into its field
