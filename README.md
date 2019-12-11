@@ -44,13 +44,13 @@ Here are 32 ascii characters, replace some characters to make it unique.
     
 ### Create a credential definition with Swaggerhub
 1. Click on your organization's Show Keys button.
-1. Navigate to the [`POST /credential/definitions/{SchemaId}`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/CreateCredentialDefinitionForSchemaId) endpoint
+1. Navigate to the [`POST /definitions/credentials/{SchemaId}`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/CreateCredentialDefinitionForSchemaId) endpoint
 1. Click the lock button on the right hand side and authorize swaggerhub by pasting "bearer " + your access token in the access token field & your subscription key into its field
 1. Click the `Try it out` button to prepare the API call to write the credential definition to the ledger
 1. In the .env file, find the ledger you're using and remove the `#` from before that SCHEMA_ID line.
 1. Copy that schema ID into the `schema_id` field in swagger hub. 
 1. Click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `id` value from the "server response" section and add it to your .env file for the CRED_DEF_ID value
-1. If you get a 504 Gateway Timeout error, go to the [GET /credentials](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/ListCredentialDefinitions) endpoint, click `try it out` and then `execute` to get your newly minted credential definition.
+1. If you get a 504 Gateway Timeout error, go to the [GET /definitions/credentials](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/ListCredentialDefinitions) endpoint, click `try it out` and then `execute` to get your newly minted credential definition.
  
 ### Running the application
 Assuming everything still works correctly, you are ready to run the application. 
