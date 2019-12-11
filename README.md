@@ -36,6 +36,7 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 
 ### Register your organization
 1. Create a new organization and select the Sovrin Staging Network if you are using iOS, and the BCovrin Test network if you are using the Mattr global app.
+1. In the .env file, add your organization's subscription key and access token to the respective fields.
 
 #### If you are using the Mattr Global Agent on Android:
 Add a transaction endorser on the BCovrin Test network by registering your did and verkey on the BCovrin network: http://test.bcovrin.vonx.io/
@@ -46,7 +47,6 @@ Here are 32 ascii characters, replace some characters to make it unique.
 1. Click on your organization's Show Keys button.
 1. Navigate to the [`POST /definitions/credentials/{SchemaId}`](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/CreateCredentialDefinitionForSchemaId) endpoint
 1. Click the lock button on the right hand side and authorize swaggerhub by pasting "bearer " + your access token in the access token field & your subscription key into its field
-1. Add the subscription key and access token to the .env file in the respective fields.
 1. Click the `Try it out` button to prepare the API call to write the credential definition to the ledger
 1. In the .env file, find the ledger you're using and remove the `#` from before that SCHEMA_ID line.
 1. Copy that schema ID into the `schema_id` field in swagger hub. 
