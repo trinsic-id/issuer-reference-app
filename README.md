@@ -49,8 +49,8 @@ Here are 32 ascii characters, replace some characters to make it unique.
     <img src="assets/orgsview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="400"
-        height="340"/>
+        width="600"
+        height="480"/>
 
 1. Navigate to the <a href="https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/CreateCredentialDefinitionForSchemaId" target="_blank">`POST /definitions/credentials/{SchemaId}` </a>endpoint
 1. Click the lock button on the right hand side and authorize swaggerhub by pasting "bearer " + your access token in the access token field & your subscription key into its field
@@ -61,8 +61,8 @@ Here are 32 ascii characters, replace some characters to make it unique.
     <img src="assets/postview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="800"
-        height="340"/>
+        width="850"
+        height="440"/>
 
 1. Click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `definitionId` value from the "server response" section and add it to your .env file for the CRED_DEF_ID value
 
@@ -86,7 +86,7 @@ Assuming everything still works correctly, you are ready to run the application.
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
         width="1000"
-        height="340"/>
+        height="300"/>
 
 - If you're using the Streetcred Wallet, make sure your agent is configured to the Sovrin Staging network (upper-left on the home tab)
 
@@ -105,6 +105,9 @@ This is a connection invitation. Webhooks will automatically issue you a credent
 - Receive a business card! 
 
 - If you are on iOS, you can also use the Streetcred Identity Agent to connect with others and send verified email and phone number between each other
+
+
+> Contact <support@streetcred.com> for any questions. 
 
 
  
