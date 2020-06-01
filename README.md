@@ -39,10 +39,9 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 ### Create a credential definition with Swaggerhub
  1. Retrieve your organization's Access Token and Subscription Key on the Organization page
 
-    <img src="assets/orgsview-2.png"
+    <img src="assets/orgsview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="600"
         height="480"/>
 
  2. Navigate to the <a href="https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/CreateCredentialDefinitionForSchemaId" target="_blank">`POST /definitions/credentials/{SchemaId}` </a>endpoint
