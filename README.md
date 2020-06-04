@@ -15,13 +15,13 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 
 ### Prepare issuer portal
  1. Clone the repository
- `git clone https://github.com/streetcred-id/iiw-demo`
+ `git clone https://github.com/streetcred-id/issuer-reference-app`
  
  2. Navigate into the directory
- `cd iiw-demo`
+ `cd issuer-reference-app`
  
  3. Install the dependencies
- `npm install .`
+ `npm install`
 
  4. Open up the repository in a code editor of your choice
 
@@ -54,16 +54,14 @@ In this simple use case, you control a (very simple) issuer portal for your orga
     <img src="assets/postview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="850"
-        height="440"/>
+        height="480"/>
 
  7. Click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `definitionId` value from the "server response" section and add it to your .env file for the CRED_DEF_ID value
 
     <img src="assets/ideview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="600"
-        height="340"/>
+        height="480"/>
 
  8. If you get a 504 Gateway Timeout error, go to the [GET /definitions/credentials](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/ListCredentialDefinitions) endpoint, click `try it out` and then `execute` to get your newly minted credential definition
  
@@ -71,15 +69,14 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 After defining the credential, you are ready to run the application. 
 
 - Run with npm
-`npm run start`
+`npm start`
 
 - On the web app, fill in the details and click issue credential
 
     <img src="assets/credentialview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="1000"
-        height="300"/>
+        height="480"/>
 
 - If you're using the Streetcred Wallet, make sure your agent is configured to the Sovrin Staging network (upper-left on the home tab)
 
@@ -88,8 +85,7 @@ After defining the credential, you are ready to run the application.
     <img src="assets/qrcodeview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="400"
-        height="340"/>
+        height="480"/>
 
 This is a connection invitation. Webhooks will automatically issue you a credential once this is scanned
 
@@ -99,8 +95,5 @@ This is a connection invitation. Webhooks will automatically issue you a credent
 
 - If you are on iOS, you can also use the Streetcred Identity Agent to connect with others and send verified email and phone number between each other
 
-
 > Contact <support@streetcred.com> for any questions. 
 
-
- 

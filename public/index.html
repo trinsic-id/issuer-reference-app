@@ -1,44 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <base href="/">
-    <link rel="apple-touch-icon" href="logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<head>
+  <meta charset="UTF-8">
+  <title>Issuer Reference App</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/qrjs2@0.1.6/qrjs2.js"></script>
+  <script src="javascripts/index.js"></script>
+  <link rel="stylesheet" href="stylesheets/style.css">
+</head>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Business Card Issuer</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<body>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<!--Navbar-->
+<nav id="navbar" class="navbar navbar-dark">
+  <a class="navbar-brand nav-element" href="#">Issuer Reference App</a>
+  <a class="nav-link nav-element navbar-text" href="https://streetcred.id" target="_blank">STREETCRED</a>
+</nav>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+<!--Body-->
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-6">
+      <div id="content">
+        <h4>Create your Business Card Credential</h4>
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name">
+        </div>
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title">
+        </div>
+        <div class="form-group">
+          <label for="organization">Organization</label>
+          <input type="text" class="form-control" id="organization">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" class="form-control" id="phone">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email">
+        </div>
+        <button type="submit" class="btn btn-primary" id="submit-button" onclick="submit()">Issue Credential</button>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>
+
+<div id="modal" class="modal">
+  <div id="modal-content">
+    <span id="close-button" onclick="closeModal()">&times;</span>
+    <p>Scan this code to create a connection and issue the credential:</p>
+    <div class="centered-content d-flex justify-content-center">
+      <div id="spinner" class="spinner-border centered-content" role="status">
+        <span class="sr-only centered-content">Loading...</span>
+      </div>
+      <div id="qrcode"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("modal");
+  const spinner = document.getElementById("spinner");
+  const qr = document.getElementById("qrcode");
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      closeModal();
+    }
+  }
+</script>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+</body>
+
 </html>
