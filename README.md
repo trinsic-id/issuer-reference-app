@@ -54,16 +54,14 @@ In this simple use case, you control a (very simple) issuer portal for your orga
     <img src="assets/postview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="850"
-        height="440"/>
+        height="480"/>
 
  7. Click "execute" and after a couple seconds you will see "curl", "request URL", and "server response".  Copy the `definitionId` value from the "server response" section and add it to your .env file for the CRED_DEF_ID value
 
     <img src="assets/ideview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="600"
-        height="340"/>
+        height="480"/>
 
  8. If you get a 504 Gateway Timeout error, go to the [GET /definitions/credentials](https://app.swaggerhub.com/apis-docs/Streetcred/agency/v1#/Definitions/ListCredentialDefinitions) endpoint, click `try it out` and then `execute` to get your newly minted credential definition
  
@@ -78,8 +76,7 @@ After defining the credential, you are ready to run the application.
     <img src="assets/credentialview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="1000"
-        height="300"/>
+        height="480"/>
 
 - If you're using the Streetcred Wallet, make sure your agent is configured to the Sovrin Staging network (upper-left on the home tab)
 
@@ -88,8 +85,7 @@ After defining the credential, you are ready to run the application.
     <img src="assets/qrcodeview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
-        width="400"
-        height="340"/>
+        height="480"/>
 
 This is a connection invitation. Webhooks will automatically issue you a credential once this is scanned
 
