@@ -1,56 +1,22 @@
 {
-  "name": "client",
-  "version": "0.1.0",
-  "homepage": ".",
+  "name": "issuer-reference-app",
+  "version": "1.0.0",
   "private": true,
+  "description": "",
+  "scripts": {
+    "start": "node ./bin/www"
+  },
   "dependencies": {
-    "@godaddy/terminus": "^4.2.0",
-    "@material-ui/core": "^4.4.3",
-    "@streetcred.id/service-clients": "^1.1.1424",
-    "axios": "^0.19.0",
+    "@godaddy/terminus": "^4.4.1",
+    "@streetcred.id/service-clients": "^1.1.3102",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
-    "dotenv": "^8.1.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-session": "^1.16.2",
-    "material-ui": "^0.20.2",
-    "ngrok": "^3.2.5",
-    "node-env-run": "^3.0.2",
-    "nodemon": "^1.19.2",
-    "npm-run-all": "^4.1.5",
-    "qrcode": "^1.4.2",
-    "qrcode.react": "^0.9.3",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.1.2",
-    "redis": "^2.8.0",
-    "serve": "^11.2.0",
-    "typescript": "^3.6.3"
-  },
-  "scripts": {
-    "start": "run-p server frontend",
-    "frontend": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "server": "node server.js --exec nodemon",
-    "remove-webhooks": "node remove.js"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ],
-    "proxy": "http://localhost:3002"
+    "ngrok": "^3.2.7",
+    "serve": "^11.3.1",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "morgan": "~1.9.1"
   }
 }

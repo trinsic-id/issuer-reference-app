@@ -15,13 +15,13 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 
 ### Prepare issuer portal
  1. Clone the repository
- `git clone https://github.com/streetcred-id/iiw-demo`
+ `git clone https://github.com/streetcred-id/issuer-reference-app`
  
  2. Navigate into the directory
- `cd iiw-demo`
+ `cd issuer-reference-app`
  
  3. Install the dependencies
- `npm install .`
+ `npm install`
 
  4. Open up the repository in a code editor of your choice
 
@@ -71,7 +71,7 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 After defining the credential, you are ready to run the application. 
 
 - Run with npm
-`npm run start`
+`npm start`
 
 - On the web app, fill in the details and click issue credential
 
@@ -99,8 +99,5 @@ This is a connection invitation. Webhooks will automatically issue you a credent
 
 - If you are on iOS, you can also use the Streetcred Identity Agent to connect with others and send verified email and phone number between each other
 
-
 > Contact <support@streetcred.com> for any questions. 
 
-
- 
