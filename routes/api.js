@@ -22,7 +22,7 @@ router.post('/issue', cors(), async function (req, res) {
   const attribs = JSON.stringify(req.body);
 
   cache.add(invite.connectionId, attribs);
-  res.status(200).send({ invite_url: invite.invitation });
+  res.status(200).send({ invitation: invite.invitation });
 });
 
 module.exports = router;

@@ -12,7 +12,7 @@ async function submit() {
     showSpinner();
     axios.post('/api/issue', bizCard).then((response) => {
         console.log(response);
-        let inviteURL = "https://web.cloud.streetcred.id/link/?c_i=" + response.data.invite_url;
+        let inviteURL = "https://web.cloud.streetcred.id/link/?c_i=" + response.data.invitation;
         setQRCodeImage(inviteURL);
         hideSpinner();
         showQRCode();
