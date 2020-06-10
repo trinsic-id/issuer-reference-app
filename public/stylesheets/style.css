@@ -1,5 +1,5 @@
 :root {
-  --primary-color: #812bff;
+  --primary-color: #006BE5;
 }
 
 body {
@@ -24,6 +24,12 @@ code {
   color: white;
 }
 
+#logo {
+  height: 30px;
+  padding: 0;
+  margin: 0;
+}
+
 #content {
   height: 100%;
   width: 100%;
@@ -35,6 +41,8 @@ code {
 #submit-button {
   background-color: var(--primary-color);
   border-color: var(--primary-color);
+  padding: 10px 20px;
+  border-radius: 30px;
 }
 
 /* The Modal */
