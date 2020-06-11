@@ -1,8 +1,8 @@
-# Streetcred's API Quickstart
-This demo shows how to add Streetcred API calls into a nodejs app with our service client. It also shows a webhook implementation can create automated workflows in your app. 
+# Trinsic's Issuer Reference App
+This demo shows how to add Trinsic Credentials API calls into a nodejs app with our service client. It also shows a webhook implementation can create automated workflows in your app. 
 
 ## Use Case
-In this simple use case, you control a (very simple) issuer portal for your organization, which can issue a business card to anyone with a mobile wallet in your organization. Once a business card is issued, that holder can do business card verifications to other peers using the Streetcred mobile app. 
+In this simple use case, you control a (very simple) issuer portal for your organization, which can issue a business card to anyone with a mobile wallet in your organization. Once a business card is issued, that holder can do business card verifications to other peers using the Trinsic Wallet app. 
 
 ## Prerequisites:
 - [npm](https://www.npmjs.com/get-npm)
@@ -27,7 +27,7 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 
  5. Rename the .env-template file to .env
 
- 6. Go to the Streetcred <a href="https://developer.streetcred.id" target="_blank">developer portal</a> and create an account
+ 6. Go to <a href="https://studio.trinsic.id" target="_blank">Trinsic Studio</a> and create an account
 
 
 
@@ -68,19 +68,19 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 ### Running the application
 After defining the credential, you are ready to run the application. 
 
-- Run with npm
+1. Run with npm
 `npm start`
 
-- On the web app, fill in the details and click issue credential
+2. On the web app, fill in the details and click issue credential
 
     <img src="assets/credentialview.png"
         alt="Organizations"
         style="padding-top: 20px; padding-bottom: 20px" 
         height="480"/>
 
-- If you're using the Streetcred Wallet, make sure your agent is configured to the Sovrin Staging network (upper-left on the home tab)
+3. Make sure your agent is configured to the Sovrin Staging network (upper-left on the home tab)
 
-- Scan the QR with your mobile wallet
+4. Scan the QR with your mobile wallet
 
     <img src="assets/qrcodeview.png"
         alt="Organizations"
@@ -89,11 +89,11 @@ After defining the credential, you are ready to run the application.
 
 This is a connection invitation. Webhooks will automatically issue you a credential once this is scanned
 
-- Accept the credential offer
+5. Accept the credential offer
 
-- Receive a business card! 
+6. Receive a business card! 
 
-- If you are on iOS, you can also use the Streetcred Identity Agent to connect with others and send verified email and phone number between each other
+You can also use the Trinsic Wallet to connect with others and send verified email and phone number between each other.
 
-> Contact <support@streetcred.com> for any questions. 
+> Contact <support@trinsic.com> for any questions. 
 
