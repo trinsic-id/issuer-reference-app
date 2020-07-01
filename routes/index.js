@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { AgencyServiceClient, Credentials } = require("@streetcred.id/service-clients");
+const { CredentialsServiceClient , Credentials } = require("@trinsic/service-clients");
 const cache = require('../model');
 require('dotenv').config();
 
-const client = new AgencyServiceClient(
+const client = new CredentialsServiceClient(
     new Credentials(process.env.ACCESSTOK, process.env.SUBKEY),
     { noRetryPolicy: true });
 

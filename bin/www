@@ -25,9 +25,9 @@ const server = http.createServer(app);
  * Listen on provided port, on all network interfaces.
  */
 
-const { AgencyServiceClient, Credentials } = require("@streetcred.id/service-clients");
+const { CredentialsServiceClient, Credentials } = require("@trinsic/service-clients");
 require('dotenv').config();
-const client = new AgencyServiceClient(
+const client = new CredentialsServiceClient(
     new Credentials(process.env.ACCESSTOK, process.env.SUBKEY),
     { noRetryPolicy: true });
 
