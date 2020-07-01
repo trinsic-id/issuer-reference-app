@@ -8,15 +8,15 @@
   },
   "dependencies": {
     "@godaddy/terminus": "^4.4.1",
-    "@streetcred.id/service-clients": "^1.1.3102",
+    "@trinsic/service-clients": "^1.1.3745",
     "body-parser": "^1.19.0",
+    "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
+    "debug": "~2.6.9",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "morgan": "~1.9.1",
     "ngrok": "^3.2.7",
-    "serve": "^11.3.1",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "morgan": "~1.9.1"
+    "serve": "^11.3.1"
   }
 }
