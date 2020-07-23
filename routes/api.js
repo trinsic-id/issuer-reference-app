@@ -6,12 +6,12 @@ const cache = require('../model');
 require('dotenv').config();
 
 const client = new CredentialsServiceClient(
-    new Credentials(process.env.ACCESSTOK, process.env.SUBKEY),
+    new Credentials(process.env.ACCESSTOK),
     { noRetryPolicy: true });
 
 const getInvite = async () => {
   try {
-    return await client.createConnection({ connectionInvitationParameters: {} });
+    return await client.createConnection({});
   } catch (e) {
     console.log(e.message || e.toString());
   }

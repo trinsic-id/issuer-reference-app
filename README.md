@@ -30,7 +30,7 @@ Once a business card is issued, that holder can do business card verifications t
 1. Create a new organization and select the Sovrin Staging Network.
 ![organization view](assets/orgsview.png)
 2. Click on the new organization tile to open the organization tab.
-3. In the .env file, add your organization's subscription key to the `SUBKEY` field and the access token to the `ACCESSTOK` field.
+3. In the .env file, add your organization's access token to the `ACCESSTOK` field.
     
 ### Create a credential definition
 1. Click on the **CREDENTIALS** button on the left side of the screen to open the credentials tab.

@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "declaration": true,
+      "declarationDir": "./dist",
+      "noImplicitAny": true,
+      "outDir": "./dist",
+      "strict": true,
+      "moduleResolution": "node",
+      "lib": [ "es2017", "es7", "es6", "dom" ]
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules", "**/__tests__/*", "dist" ]
+  }

@@ -38,10 +38,8 @@ server.listen(port, async function () {
   const url_val = await ngrok.connect(port);
   console.log("============= \n\n" + url_val + "\n\n =========");
   let response = await client.createWebhook({
-    webhookParameters: {
-      url: url_val + "/webhook",  // process.env.NGROK_URL
-      type: "Notification"
-    }
+    url: url_val + "/webhook",  // process.env.NGROK_URL
+    type: "Notification"
   });
   cache.add("webhookId", response.id);
   console.log('Listening on port %d', server.address().port);
