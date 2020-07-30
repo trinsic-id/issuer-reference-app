@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@godaddy/terminus": "^4.4.1",
-    "@trinsic/service-clients": "^1.1.3745",
+    "@trinsic/service-clients": "^1.1.4070",
     "body-parser": "^1.19.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",

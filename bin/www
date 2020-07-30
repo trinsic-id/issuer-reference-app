@@ -28,7 +28,7 @@ const server = http.createServer(app);
 const { CredentialsServiceClient, Credentials } = require("@trinsic/service-clients");
 require('dotenv').config();
 const client = new CredentialsServiceClient(
-    new Credentials(process.env.ACCESSTOK, process.env.SUBKEY),
+    new Credentials(process.env.ACCESSTOK),
     { noRetryPolicy: true });
 
 const cache = require('../model');

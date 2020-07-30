@@ -5,7 +5,7 @@ const cache = require('../model');
 require('dotenv').config();
 
 const client = new CredentialsServiceClient(
-    new Credentials(process.env.ACCESSTOK, process.env.SUBKEY),
+    new Credentials(process.env.ACCESSTOK),
     { noRetryPolicy: true });
 
 /* GET home page */
