@@ -5,7 +5,7 @@ const cache = require('../model');
 require('dotenv').config();
 
 const client = new CredentialsServiceClient(
-    new Credentials(process.env.ACCESSTOK, process.env.SUBKEY),
+    new Credentials(process.env.ACCESSTOK),
     { noRetryPolicy: true });
 
 /* GET home page */
@@ -23,17 +23,15 @@ router.post('/webhook', async function (req, res) {
       if (attribs) {
         let param_obj = JSON.parse(attribs);
         let params = {
-          credentialOfferParameters: {
-            definitionId: process.env.CRED_DEF_ID,
-            connectionId: req.body.object_id,
-            automaticIssuance: true,
-            credentialValues: {
-              "Full Name": param_obj["name"],
-              "Title": param_obj["title"],
-              "Company Name": param_obj["org"],
-              "Phone Number": param_obj["phone"],
-              "Email": param_obj["email"]
-            }
+          definitionId: process.env.CRED_DEF_ID,
+          connectionId: req.body.object_id,
+          automaticIssuance: true,
+          credentialValues: {
+            "Full Name": param_obj["name"],
+            "Title": param_obj["title"],
+            "Company Name": param_obj["org"],
+            "Phone Number": param_obj["phone"],
+            "Email": param_obj["email"]
           }
         }
         await client.createCredential(params);

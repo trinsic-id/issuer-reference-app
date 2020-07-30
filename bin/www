@@ -28,7 +28,7 @@ const server = http.createServer(app);
 const { CredentialsServiceClient, Credentials } = require("@trinsic/service-clients");
 require('dotenv').config();
 const client = new CredentialsServiceClient(
-    new Credentials(process.env.ACCESSTOK, process.env.SUBKEY),
+    new Credentials(process.env.ACCESSTOK),
     { noRetryPolicy: true });
 
 const cache = require('../model');
@@ -38,10 +38,8 @@ server.listen(port, async function () {
   const url_val = await ngrok.connect(port);
   console.log("============= \n\n" + url_val + "\n\n =========");
   let response = await client.createWebhook({
-    webhookParameters: {
-      url: url_val + "/webhook",  // process.env.NGROK_URL
-      type: "Notification"
-    }
+    url: url_val + "/webhook",  // process.env.NGROK_URL
+    type: "Notification"
   });
   cache.add("webhookId", response.id);
   console.log('Listening on port %d', server.address().port);
