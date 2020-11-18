@@ -17,7 +17,7 @@ Once a business card is issued, that holder can do business card verifications t
 
 ### Prepare issuer portal
 1. Clone the repository
-`git clone https://github.com/streetcred-id/issuer-reference-app`
+`git clone https://github.com/trinsic-id/issuer-reference-app`
 2. Navigate into the directory
 `cd issuer-reference-app`
 3. Install the dependencies
