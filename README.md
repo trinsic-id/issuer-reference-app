@@ -28,18 +28,27 @@ Once a business card is issued, that holder can do business card verifications t
 
 ### Register your organization
 1. Create a new organization and select the Sovrin Staging Network.
-![organization view](assets/orgsview.png)
 2. Click on the details button associated with the new organization to open the organization details tab.
+![organization view](assets/orgsview.png)
 3. In the .env file, add your organization's access token to the `ACCESSTOK` field.
     
 ### Create a credential definition
 1. Click on the new organization to enter its dashbaord.
 2. Click on the **CREDENTIALS** button on the left side of the screen to open the credentials tab.
-3. Click on the **Create Template** button and select the **From existing schema** radio option.
-4. Copy the SCHEMA_ID value from the .env file and paste it into the **Schema ID** textbox.
-5. Click on the **Create template** button to define the credential.
-![studio credential view](assets/studio-credential.png)
-6. Copy the Definition ID and paste it as the CRED_DEF_ID value in the .env file. 
+3. Click on the **Create Template** button and select the **New Schema** option.
+4. Name the template "Business Card".
+5. Enter the following attributes
+    - Full Name
+    - Title
+    - Company Name
+    - Phone Number
+    - Email
+  
+    ![studio credential view](assets/studio-credential.png)
+6. Click **Continue to Review** then **Confirm**.
+7. Copy the **Credential Template ID** to the `.env` file under `Credential Definition`
+8. Click on the information icon next to the credential definition.
+9. Copy the **Schema ID** to the `.env` file under `Sovrin Staging Schema`
  
 ### Running the application
 After defining the credential, you are ready to run the application. 
