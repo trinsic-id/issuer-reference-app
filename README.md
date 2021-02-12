@@ -33,12 +33,13 @@ Once a business card is issued, that holder can do business card verifications t
 3. In the .env file, add your organization's access token to the `ACCESSTOK` field.
     
 ### Create a credential definition
-1. Click on the **CREDENTIALS** button on the left side of the screen to open the credentials tab.
-2. Click on the **+ New credential template** button and select the **From existing schema** radio option.
-3. Copy the SCHEMA_ID value from the .env file and paste it into the **Schema ID** textbox.
-4. Click on the **Create template** button to define the credential.
+1. Click on the new organization to enter its dashbaord.
+2. Click on the **CREDENTIALS** button on the left side of the screen to open the credentials tab.
+3. Click on the **Create Template** button and select the **From existing schema** radio option.
+4. Copy the SCHEMA_ID value from the .env file and paste it into the **Schema ID** textbox.
+5. Click on the **Create template** button to define the credential.
 ![studio credential view](assets/studio-credential.png)
-5. Copy the Definition ID and paste it as the CRED_DEF_ID value in the .env file. 
+6. Copy the Definition ID and paste it as the CRED_DEF_ID value in the .env file. 
  
 ### Running the application
 After defining the credential, you are ready to run the application. 
