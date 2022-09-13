@@ -7,7 +7,7 @@ In this simple use case, you control a (very simple) issuer portal for your orga
 Once a business card is issued, that holder can do business card verifications to other peers using the Trinsic Wallet app. 
 
 ## Prerequisites:
-- [npm](https://www.npmjs.com/get-npm)
+- [npm](https://www.npmjs.com/get-npm) - Make sure you have the latest **stable** version
 
 ## Install mobile wallet
 
@@ -27,10 +27,10 @@ Once a business card is issued, that holder can do business card verifications t
 6. Go to <a href="https://studio.trinsic.id" target="_blank">Trinsic Studio</a> and create an account
 
 ### Register your organization
-1. Create a new organization and select the Sovrin Staging Network.
-2. Click on the details button associated with the new organization to open the organization details tab.
+1. Create a new organization and select the Indicio Test Network.
+2. Click on the *Details* button associated with the new organization to open the organization details tab.
 ![organization view](assets/orgsview.png)
-3. In the .env file, add your organization's access token to the `ACCESSTOK` field.
+3. In the .env file, add your organization's API Key to the `ACCESSTOK` field.
     
 ### Create a credential definition
 1. Click on the new organization to enter its dashbaord.
@@ -55,9 +55,9 @@ After defining the credential, you are ready to run the application.
 
 1. Run with npm
 `npm start`
-2. On the web app, fill in the details and click issue credential.
+2. On the web app (localhost:3000), fill in the details and click issue credential.
 ![credential view](assets/credentialview.png)
-3. Make sure your agent is configured to the Sovrin Staging network (upper-left on the home tab).
+3. Make sure your agent (upper-left on the home tab) and your mobile app (Settings>General>Network) are configured to the Indicio Test Network 
 4. Scan the QR with your mobile wallet.
 ![qr code view](assets/qrcodeview.png)
 
